@@ -21,6 +21,42 @@ class _InputTextState extends State<InputText> {
             decoration: const InputDecoration(
               hintText: "Codigo",
             ),
+            onChanged: (value) {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class InputDescription extends StatefulWidget {
+  const InputDescription({super.key});
+
+  @override
+  State<InputDescription> createState() => _InputDescriptionState();
+}
+
+class _InputDescriptionState extends State<InputDescription> {
+  var descripcion = "";
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: "Descripcion",
+            ),
+            onChanged: (value) {
+              setState(() {
+                descripcion = value;
+              });
+            },
           ),
         ],
       ),
